@@ -1,43 +1,78 @@
-Segmentação de Clientes com Clustering K-Means
-Este projeto foi desenvolvido como parte do módulo de modelagem avançada do curso de Ciência de Dados da EBAC. O objetivo principal é transformar dados brutos de comportamento de consumo em inteligência estratégica, identificando perfis distintos de clientes para direcionamento de campanhas de marketing personalizadas.
+# 🛍️ Customer Segmentation with K-Means Clustering
 
-📊 O Desafio
-Agrupar uma base de clientes com base em suas características de renda e hábitos de gasto, permitindo que o time de negócio entenda as diferentes personas e otimize o ROI de marketing através da personalização.
+Unsupervised machine learning project to identify distinct customer profiles and enable personalized marketing strategies based on behavioral and financial data.
 
-🛠️ Tecnologias Utilizadas
-Linguagem: Python
+---
 
-Bibliotecas de Manipulação: Pandas, NumPy
+## 🎯 Business Objective
 
-Visualização: Matplotlib, Seaborn
+Retail and e-commerce teams often treat their entire customer base as a single audience, resulting in low ROI on marketing campaigns. This project solves that problem by grouping customers into homogeneous segments, allowing the business to tailor communication, offers, and retention strategies to each profile.
 
-Machine Learning: Scikit-learn (K-Means)
+---
 
-📈 Metodologia e Resultados
-1. Processamento de Dados
-Realizei a limpeza e a normalização dos dados para garantir que a escala das variáveis (Renda vs. Pontuação de Gastos) não enviesasse o algoritmo de clustering.
+## 🗂️ Methodology
 
-2. Definição do Número de Clusters
-Utilizei o método Elbow (Cotovelo) e a análise de Silhouette Score para determinar o número ideal de grupos. O modelo final foi consolidado com 5 clusters, alcançando um Silhouette Score de 0.272, indicando segmentações bem definidas.
+### 1. Exploratory Data Analysis (EDA)
+- Analyzed the distribution of income and spending score across the customer base
+- Identified correlations between demographic variables and purchasing behavior
 
-3. As Personas Identificadas
-Com base na análise dos centros de cada cluster, identifiquei as seguintes estratégias:
+### 2. Data Preprocessing
+- Normalized features using `StandardScaler` to prevent scale bias in the distance-based algorithm
+- Selected the most discriminating variables for clustering: **Annual Income** and **Spending Score**
 
-Cluster 0 (Estáveis): Público mais velho, renda estável e gastos moderados. Foco em fidelização.
+### 3. Optimal Number of Clusters
+Two complementary techniques were applied to define the ideal number of groups:
+- **Elbow Method**: Identified the point of diminishing returns on inertia reduction
+- **Silhouette Score**: Validated cluster cohesion; the final model with **5 clusters** achieved a score of **0.272**
 
-Cluster 1 (Poupadores): Alto poder aquisitivo, mas baixa frequência de gastos. Foco em campanhas de exclusividade.
+### 4. K-Means Model
+- Trained a K-Means model with `k=5`
+- Mapped cluster centers to business personas for strategic interpretation
 
-Cluster 2 (Engajados): Jovens com renda média e alto volume de compras. Foco em eventos e experiências.
+---
 
-Cluster 3 (Premium): Alta renda e alto padrão de gastos recorrentes. Foco em serviços VIP e networking.
+## 📊 Results — The 5 Customer Personas
 
-Cluster 4 (Consumistas): Jovens com renda menor que priorizam o shopping. Foco em descontos e tendências.
+| Cluster | Profile | Strategy |
+|---|---|---|
+| 0 — Stable | Older customers, stable income, moderate spending | Loyalty programs |
+| 1 — Savers | High income, low spending frequency | Exclusivity and premium campaigns |
+| 2 — Engaged | Young, mid-income, high purchase volume | Events and experiences |
+| 3 — Premium | High income and high recurring spending | VIP services and networking |
+| 4 — Trend-driven | Young, lower income, shopping-oriented | Discounts and trend content |
 
-📁 Como rodar o projeto
-Clone o repositório.
+---
 
-Certifique-se de ter o Python e o Jupyter Notebook instalados.
+## 🛠️ Tech Stack
 
-Instale as dependências: pip install pandas scikit-learn matplotlib seaborn
+| Category | Tools |
+|---|---|
+| Language | Python |
+| Data Manipulation | Pandas, NumPy |
+| Visualization | Matplotlib, Seaborn |
+| Machine Learning | Scikit-learn (K-Means, StandardScaler, Silhouette Score) |
+| Environment | Jupyter Notebook |
 
-Abra o arquivo .ipynb e execute as células para ver a análise completa.
+---
+
+## ▶️ How to Run
+
+```bash
+# Clone the repository
+git clone https://github.com/oporaxuao/customer-segmentation-kmeans.git
+cd customer-segmentation-kmeans
+
+# Install dependencies
+pip install pandas numpy matplotlib seaborn scikit-learn jupyter
+
+# Launch the notebook
+jupyter notebook
+```
+
+---
+
+## 👤 Author
+
+**João Alfredo de Sousa Siqueira**
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-oporaxuao-blue)](https://linkedin.com/in/oporaxuao)
+[![GitHub](https://img.shields.io/badge/GitHub-oporaxuao-black)](https://github.com/oporaxuao)
